@@ -1,0 +1,38 @@
+main()
+{
+int n,i,twt,ttt;
+char p[20][20];
+int b[20],w[20],tt[20];
+float awt,att;
+printf("Enter no.of process:");
+scanf("%d",&n);
+for(i=1;i<=n;i++)
+{
+printf("Enter process:");
+scanf("%s",p[i]);
+printf("Enter burst time:");
+scanf("%d",&b[i]);
+}
+w[1]=0;
+tt[1]=w[1]+b[1];
+twt=0;
+ttt=tt[1];
+for(i=2;i<=n;i++)
+ {
+ w[i]=w[i-1]+b[i-1];
+ tt[i]=w[i]+b[i];
+ twt=w[i]+twt;
+31
+ACOE OS LAB CSE
+ ttt=tt[i]+ttt;
+ }
+ printf("sno\tprocess name \tburst time \twaiting time \tturn around time\n");
+ for(i=1;i<=n;i++)
+ {
+ printf("%d\t%s\t\t%d\t\t%d\t\t%d\t\n",i,p[i],b[i],w[i],tt[i]);
+ }
+ printf("Total waiting time: %d\n",twt);
+ printf("Total turn around time: %d\n",ttt);
+ printf("Avg waiting time: %f\n",(float)twt/n);
+ printf("Avg turn around time: %f\n",(float)ttt/n);
+ }

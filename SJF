@@ -1,0 +1,23 @@
+}
+}
+w[1]=0;
+tat[1]=w[1]+b[1];
+twt=0;
+ttt=tat[1];
+for(i=2;i<=n;i++)
+ {
+ w[i]=w[i-1]+b[i-1];
+ tat[i]=w[i]+b[i];
+ twt=w[i]+twt;
+ ttt=tat[i]+ttt;
+ }
+ printf("s.no\tprocessname\tburst\ttwait\ttturn around\n");
+ for(i=1;i<=n;i++)
+ {
+ printf("%d\t%s\t\t%d\t%d\t%d\t\n",i,p[i],b[i],w[i],tat[i]);
+ }
+ printf("Total waiting time: %d\n",twt);
+ printf("Total turn around time: %d\n",ttt);
+ printf("Avg waiting time: %f\n",(float)twt/n);
+ printf("Avg turn around time: %f\n",(float)ttt/n);
+ }

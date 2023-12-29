@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<pthread.h>
+void *mythread(void *vargp)
+{
+ sleep(1);
+ printf("welcome to thread creation example·\n");
+ return NULL;
+}
+int main()
+{
+ pthread_t tid;
+ printf("before thread\n");
+ pthread_create(&tid,NULL,mythread,NULL);
+ pthread_join(tid,NULL);
+ exit(0);
+}
